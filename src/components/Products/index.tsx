@@ -3,6 +3,65 @@ import Images from "../../utils/Images";
 import Pagination from "./Pagination";
 import ModalLayout from "../../utils/Modal";
 
+const Content = ({ img, name, price,handleChange, handleSubmit }) => (
+    <main className="flex items-center p-5 w-full h-full bg-white">
+      <div className="border-t border-b pt-16 grid md:grid-cols-2 grid-cols-1 gap-8">
+        <div className="flex flex-col justify-start">
+          <div
+            className="flex flex-col w-full object-cover h-4/6 justify-items-start border rounded-lg overflow-hidden"
+            style={{ height: 320 }}
+          >
+            <img
+              className="w-full h-full object-cover"
+              src={img}
+              alt="nike shoes"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <div className="flex flex-col gap-4">
+            <h1 className="capitalize text-4xl font-extrabold">{name}</h1>
+            <h2 className="text-3xl">${price}</h2>
+            <div>
+              <div className="my-2">
+                <input onChange={handleChange} type="text" name="name" placeholder="Enter Full name" className="rounded-xl h-15 w-full" />
+              </div>
+              <div className="my-2">
+                <input onChange={handleChange} type="number" name="amount" placeholder={`Enter Amount of ${name} needed`} className="rounded-xl h-15 w-full" />
+              </div>
+            <div className="flex justify-center items-center gap-4 my-6 cursor-pointer">
+              <button type="button" onClick={()=>handleSubmit(name, price)} className="bg-blue-600 px-5 py-3 text-white rounded-lg w-full text-center">
+                Place Order
+              </button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+  const Trigger = ({setOpen}) => (
+    <button
+      onClick={() => setOpen(true)}
+      className="p-2 rounded-full bg-purple-600 text-white mx-5 -mb-4 hover:bg-purple-500 focus:outline-none focus:bg-purple-500"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+        />
+      </svg>
+    </button>
+  );
+
 export default function Products() {
   const [images, setImages] = React.useState(Images());
   const [order, setOrder] = React.useState("asc");
@@ -37,24 +96,14 @@ export default function Products() {
     listCount === 21 && setActive(3);
     listCount === 28 && setActive(4);
   }, [listCount]);
-  // React.useEffect(()=>{
-  //   active && active === 1 && setList(images?.slice(0, 7)) && setListCount(0);
-  //   active && active === 2 && setList(images?.slice(7, 14)) && setListCount(7);
-  //   active && active === 3 && setList(images?.slice(14, 21)) && setListCount(14);
-  //   active && active === 4 && setList(images?.slice(21, 28)) && setListCount(21);
-  // },[active])
-  // const handleNumClick = (num: any) => {
-  //   num === 1 && setList(images?.slice(0, 7)) && setListCount(0);
-  //   num === 2 && setList(images?.slice(7, 14)) && setListCount(7);
-  //   num === 3 && setList(images?.slice(14, 21)) && setListCount(14);
-  //   num === 4 && setList(images?.slice(21, 28)) && setListCount(21)
-  // }
   const [state, setState] = React.useState({
     name: "",
     amount: 0
   })
-  const handleSubmit = (e: any, name, price) => {
-    e.preventDefault()
+  const handleSubmit = (name, price) => {
+    const waText = `${state.name} just placed an order for ${state.amount} pieces of ${name}`
+    console.log(waText)
+     window.open(`https://wa.me/${'+234'+`${9078044747}`}?text=${encodeURIComponent(waText)}`, '_blank')
   }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState({
@@ -63,66 +112,7 @@ export default function Products() {
     })
   }
   const [open, setOpen] = React.useState(false);
-  const Content = ({ img, name, price }) => (
-    <main className="flex items-center p-5 w-full h-full bg-white">
-      <div className="border-t border-b pt-16 grid md:grid-cols-2 grid-cols-1 gap-8">
-        <div className="flex flex-col justify-start">
-          <div
-            className="flex flex-col w-full object-cover h-4/6 justify-items-start border rounded-lg overflow-hidden"
-            style={{ height: 320 }}
-          >
-            <img
-              className="w-full h-full object-cover"
-              src={img}
-              alt="nike shoes"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-col gap-4">
-            <h1 className="capitalize text-4xl font-extrabold">{name}</h1>
-            <h2 className="text-3xl">${price}</h2>
-            <form onSubmit={(e)=>{
-              handleSubmit(e,name, price)
-              }}>
-              <div className="my-2">
-                <input onChange={handleChange} type="text" name="name" placeholder="Enter Full name" className="rounded-xl h-15 w-full" />
-              </div>
-              <div className="my-2">
-                <input onChange={handleChange} type="number" name="amount" placeholder={`Enter Amount of ${name} needed`} className="rounded-xl h-15 w-full" />
-              </div>
-            <div className="flex justify-center items-center gap-4 my-6 cursor-pointer">
-              <button type="submit" className="bg-blue-600 px-5 py-3 text-white rounded-lg w-full text-center">
-                Place Order
-              </button>
-            </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </main>
-  );
-  const Trigger = () => (
-    <button
-      onClick={() => setOpen(true)}
-      className="p-2 rounded-full bg-purple-600 text-white mx-5 -mb-4 hover:bg-purple-500 focus:outline-none focus:bg-purple-500"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M14 5l7 7m0 0l-7 7m7-7H3"
-        />
-      </svg>
-    </button>
-  );
+  
   return (
     <div>
       <div className="flex flex-row justify-between px-5 py-2 w-full">
@@ -148,7 +138,7 @@ export default function Products() {
                   }}
                 >
                   <ModalLayout
-                    trigger={<Trigger />}
+                    trigger={<Trigger setOpen={setOpen} />}
                     open={open}
                     setOpen={setOpen}
                     content={
@@ -156,6 +146,8 @@ export default function Products() {
                         img={img}
                         name={`Food ${index}`}
                         price={`${index}.99`}
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit}
                       />
                     }
                     title={`Place Order For Food ${index}`}
