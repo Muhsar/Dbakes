@@ -5,9 +5,9 @@ import img2 from "../../images/i20.jpg"
 import Carousel from "react-material-ui-carousel"
 // import { Carousel } from 'react-material-ui-carousel';
 export default function Home() {
-  const images = [img, img1, img2]
+  const images = [img]
   return (
-    <section className="bg-gray-200 py-20 lg:py-28">{/* Start Hero Block */}
+    <section className="bg-gray-800 py-20 lg:py-28">{/* Start Hero Block */}
   <div className="container mx-auto px-5 text-center">
     <div className="mb-16">
       <div className="space-y-4 mb-12">

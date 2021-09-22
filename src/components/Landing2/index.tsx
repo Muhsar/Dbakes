@@ -10,14 +10,14 @@ import Helmet from "react-helmet"
 export default function Landing2() {
   return (
     <>
-<div className="font-sans antialiased text-gray-900">
-      <main>
-        <Home />
+<div className="font-sans antialiased text-gray-100 bg-gray-800">
+      <main className="bg-gray-800">
+        {/* <Home /> */}
         <About />
-        <Services />
-        <Menu />
-        <App />
-      <Footer />
+        {/* <Services /> */}
+        {/* <Menu /> */}
+        {/* <App /> */}
+      {/* <Footer /> */}
         {/* <Contact /> */}
       </main>
 </div>

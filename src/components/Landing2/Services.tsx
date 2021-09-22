@@ -19,12 +19,12 @@ export default function Services() {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, doloribus. Ipsum saepe dicta excepturi vero sint dolorum quo ullam qui possimus inventore nesciunt incidunt, cum vel modi nostrum tempore. Commodi consectetur reiciendis veniam possimus corporis, distinctio officiis eos iste totam fuga, eum magnam adipisci accusantium.
           </p>
         </div>
-        <div className="bg-gray-100 p-20">
+        <div className="bg-gray-800 p-20">
           <img src={img3} alt="" />
         </div>
       </div>
       <div className="grid lg:grid-cols-2 gap-5 lg:gap-0 items-center">
-        <div className="bg-gray-100 p-20 order-last lg:order-first">
+        <div className="bg-gray-800 p-20 order-last lg:order-first">
           <img src={img1} alt="" />
         </div>
         <div className="space-y-4 lg:pl-20">
@@ -41,7 +41,7 @@ export default function Services() {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, doloribus. Ipsum saepe dicta excepturi vero sint dolorum quo ullam qui possimus inventore nesciunt incidunt, cum vel modi nostrum tempore. Commodi consectetur reiciendis veniam possimus corporis, distinctio officiis eos iste totam fuga, eum magnam adipisci accusantium.
           </p>
         </div>
-        <div className="bg-gray-100 p-20">
+        <div className="bg-gray-800 p-20">
           <img src={img2} alt="" />
         </div>
       </div>

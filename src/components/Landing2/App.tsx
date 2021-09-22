@@ -3,7 +3,7 @@ import img from "../../images/i2.jpg"
 
 export default function App() {
   return (
-    <section className="bg-gray-100 py-20 lg:py-28">{/* Start Fifth Block */}
+    <section className="bg-gray-800 py-20 lg:py-28">{/* Start Fifth Block */}
   <div className="container mx-auto px-5">
     <div className="grid lg:grid-cols-2 gap-10 items-center text-center lg:text-left">
       <div className="space-y-8">
