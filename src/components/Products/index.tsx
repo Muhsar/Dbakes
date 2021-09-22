@@ -101,7 +101,7 @@ export default function Products() {
     amount: 0
   })
   const handleSubmit = (name, price) => {
-    const waText = `${state.name} just placed an order for ${state.amount} pieces of ${name}`
+    const waText = `Hey CEO of Deezah Bakes, ${state.name} just placed an order for ${state.amount} pieces of ${name}`
     console.log(waText)
      window.open(`https://wa.me/${'+234'+`${9078044747}`}?text=${encodeURIComponent(waText)}`, '_blank')
   }
